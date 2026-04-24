@@ -1,7 +1,7 @@
 <<<<<<< HEAD
-# 🎨 Aplikasi Rekomendasi Produk Cat
+# Aplikasi Rekomendasi Produk Cat
 
-## 👤 Identitas Mahasiswa
+## Identitas Mahasiswa
 - Nama: Much Randam Fihan Sugiarto
 - NIM: 220101063
 - Kelas: SI 22 A2
@@ -14,7 +14,7 @@ Aplikasi ini digunakan untuk mengelola data produk cat serta memberikan rekomend
 ---
 
 ## Fitur
-- Login & Autentikasi
+- Login & Autentikasi (Email: admin@gmail.com, Password: admin123)
 - CRUD Produk Cat
 - Dashboard (statistik & grafik)
 - Rekomendasi Produk
