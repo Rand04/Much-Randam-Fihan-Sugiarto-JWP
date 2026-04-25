@@ -25,6 +25,10 @@
             Data Cat
         </a>
 
+        <a href="{{ route('suppliers.index') }}" class="text-gray-700 hover:text-blue-500">
+            Supplier
+        </a>
+
         <a href="/rekomendasi" class="hover:text-blue-500 transition">
             Rekomendasi
         </a>
