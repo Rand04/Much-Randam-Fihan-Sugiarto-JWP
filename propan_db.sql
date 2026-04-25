@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2026 at 05:29 PM
+-- Generation Time: Apr 25, 2026 at 06:02 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -117,7 +117,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '0001_01_01_000001_create_cache_table', 1),
 (3, '0001_01_01_000002_create_jobs_table', 1),
 (4, '2026_04_23_170252_create_paints_table', 1),
-(5, '2026_04_23_170349_create_paint_types_table', 1);
+(5, '2026_04_23_170349_create_paint_types_table', 1),
+(6, '2026_04_25_024718_create_suppliers_table', 1);
 
 -- --------------------------------------------------------
 
@@ -145,12 +146,13 @@ CREATE TABLE `paints` (
 --
 
 INSERT INTO `paints` (`id`, `paint_type_id`, `nama_cat`, `jenis`, `warna`, `harga`, `terjual`, `kualitas`, `ukuran`, `deskripsi`, `created_at`, `updated_at`) VALUES
-(2, 1, 'Propan Decorcryl', 'interior', 'Putih', 85000, 120, 'premium', '5Kg', NULL, '2026-04-23 11:01:59', '2026-04-23 11:01:59'),
-(3, 1, 'Propan Ultran', 'eksterior', 'Abu-abu', 120000, 200, 'premium', '5Kg', 'Tahan cuaca dan jamur', '2026-04-23 21:11:02', '2026-04-23 21:11:02'),
-(4, 1, 'Propan Eco Emulsion', 'interior', 'Cream', 75000, 90, 'standar', '5Kg', 'Cat ramah lingkungan', '2026-04-23 21:12:16', '2026-04-23 21:12:16'),
-(5, 2, 'Propan Wood Stain', 'interior', 'Coklat Tua', 95000, 80, 'premium', '1Kg', 'Menonjolkan serat kayu alami', '2026-04-23 21:13:13', '2026-04-23 21:13:13'),
-(6, 2, 'Propan Impra Melamic', 'interior', 'Transpaaran', 110000, 70, 'premium', '1Kg', 'Finishing kayu glossy', '2026-04-23 21:14:16', '2026-04-23 21:14:16'),
-(7, 3, 'Propan Zinc Chromate', 'eksterior', 'Hijau', 100000, 150, 'premium', '1Kg', 'Anti karat untuk besi', '2026-04-23 21:14:53', '2026-04-23 21:14:53');
+(1, 1, 'Propan Decorcryl', 'interior', 'Putih', 85000, 120, 'premium', '5', 'Cat interior berkualitas tinggi dengan hasil halus', '2026-04-24 20:38:57', '2026-04-24 20:38:57'),
+(2, 1, 'Propan Ultran', 'eksterior', 'Abu-abu', 120000, 200, 'premium', '5Kg', 'Tahan cuaca dan jamur', '2026-04-24 20:39:35', '2026-04-24 20:39:35'),
+(3, 1, 'Propan Eco Emulsion', 'interior', 'Cream', 75000, 90, 'standar', '5Kg', 'Cat ramah lingkungan', '2026-04-24 20:40:18', '2026-04-24 20:40:18'),
+(4, 2, 'Propan Wood Stain', 'interior', 'Coklat Tua', 95000, 80, 'premium', '1Kg', 'Menonjolkan serat kayu alami', '2026-04-24 20:41:08', '2026-04-24 20:41:08'),
+(5, 2, 'Propan Impra Melamic', 'interior', 'Transpaaran', 110000, 70, 'premium', '1Kg', 'Finishing kayu glossy', '2026-04-24 20:41:39', '2026-04-24 20:41:39'),
+(6, 3, 'Propan Zinc Chromate', 'interior', 'Hijau', 100000, 150, 'premium', '1Kg', 'Anti karat untuk besi', '2026-04-24 20:42:18', '2026-04-24 20:42:18'),
+(7, 3, 'Propan Synthetic Enamel', 'eksterior', 'Hitam', 90000, 110, 'standar', '1Kg', 'Finishing mengkilap', '2026-04-24 20:43:46', '2026-04-24 20:43:46');
 
 -- --------------------------------------------------------
 
@@ -164,15 +166,6 @@ CREATE TABLE `paint_types` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `paint_types`
---
-
-INSERT INTO `paint_types` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Tembok', '2026-04-23 17:25:57', '2026-04-23 17:25:57'),
-(2, 'Kayu', '2026-04-23 17:25:57', '2026-04-23 17:25:57'),
-(3, 'Besi', '2026-04-23 17:25:11', '2026-04-23 17:25:11');
 
 -- --------------------------------------------------------
 
@@ -206,8 +199,31 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('amvL0nYVtbcDLdM8G7A0rPzv9xHnFvSlR60uVVIL', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiWW9oSmFTOWNtU0lybHI0Rk9IR1RMaUdwRkpkV2NaSVdOWTdVS2UxeiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXNoYm9hcmQiO3M6NToicm91dGUiO3M6OToiZGFzaGJvYXJkIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1777044262),
-('mPRER5AzjQHJ3T56tIoIvTtRqIofXhatLHEtOAVf', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiNzUyc0QwZGJuMEI3RGxyMXI2VkFLejFJbUx3bTlRSjhkUFVnUkNZUSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1777033946);
+('IwaOyYNGMeR3gLm5LPtYTqWncEFJFjYUAE5Zg49o', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiSHNya0NoNEdQZk1uQ1JibHZvY3lyRUllRkNvQXU5S0wxRTdxdE9SeSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9zdXBwbGllcnMiO3M6NToicm91dGUiO3M6MTU6InN1cHBsaWVycy5pbmRleCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1777088931);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `suppliers`
+--
+
+CREATE TABLE `suppliers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama_supplier` varchar(255) NOT NULL,
+  `alamat` varchar(255) DEFAULT NULL,
+  `telepon` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `suppliers`
+--
+
+INSERT INTO `suppliers` (`id`, `nama_supplier`, `alamat`, `telepon`, `created_at`, `updated_at`) VALUES
+(1, 'PT Propan Raya ICC', 'Jl. Raya Solo - Yogyakarta Km 12, Klaten', '0272-123456', '2026-04-24 20:38:04', '2026-04-24 20:38:04'),
+(2, 'PT Avian Brands', 'Jl. Ahmad Yani No. 317, Sidoarjo', '031-8961234', '2026-04-24 20:48:26', '2026-04-24 20:48:26'),
+(3, 'PT Nippon Paint Indonesia', 'Jl. Ancol Barat I No. 1, Jakarta Utara', '021-6900545', '2026-04-24 20:48:50', '2026-04-24 20:48:50');
 
 -- --------------------------------------------------------
 
@@ -231,7 +247,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', NULL, '$2y$12$r3r4I4i7qCuuaXp2OC5U7u8EqHFUNQa0OZ27/Xppwx27ThDdkXBgi', NULL, '2026-04-23 10:19:07', '2026-04-23 10:19:07');
+(1, 'Admin', 'admin@gmail.com', NULL, '$2y$12$WgHOGLG1jBmhqP8ltvixK.uc/A6vOwiWYwDf6DRbMhTskp0a2eHMK', NULL, '2026-04-24 20:35:37', '2026-04-24 20:35:37');
 
 --
 -- Indexes for dumped tables
@@ -304,6 +320,12 @@ ALTER TABLE `sessions`
   ADD KEY `sessions_last_activity_index` (`last_activity`);
 
 --
+-- Indexes for table `suppliers`
+--
+ALTER TABLE `suppliers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -330,18 +352,24 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `paints`
 --
 ALTER TABLE `paints`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `paint_types`
 --
 ALTER TABLE `paint_types`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `suppliers`
+--
+ALTER TABLE `suppliers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
